@@ -60,17 +60,17 @@ build_vim:
 			git clone https://github.com/vim/vim.git && \
 			cd vim && \
 			./configure --with-features=huge \
-	    		--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
-	    		--with-python3-config-dir=/usr/lib/python3.5/config-x86_64-linux-gnu/ \
-            	--enable-multibyte \
-	    		--enable-rubyinterp=yes \
-	    		--enable-pythoninterp=yes \
-	    		--enable-python3interp=yes \
-	    		--enable-perlinterp=yes \
-	    		--enable-luainterp=yes \
-            	--enable-gui=gtk2 \
-            	--enable-cscope \
-	   			--prefix=/usr/local &&\
+					--with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
+					--with-python3-config-dir=/usr/lib/python3.5/config-x86_64-linux-gnu/ \
+					--enable-multibyte \
+					--enable-rubyinterp=yes \
+					--enable-pythoninterp=yes \
+					--enable-python3interp=yes \
+					--enable-perlinterp=yes \
+					--enable-luainterp=yes \
+					--enable-gui=gtk2 \
+					--enable-cscope \
+					--prefix=/usr/local &&\
 			make VIMRUNTIMEDIR=/usr/local/share/vim/vim81 &&\
 			sudo checkinstall -y &&\
 			sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1 && \

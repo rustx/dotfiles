@@ -25,18 +25,18 @@ build_mutt:
 			rm mutt-1.9.5.tar.gz && \
 			cd mutt-1.9.5/ && \
 			sudo apt-get install -y  build-essential libtokyocabinet-dev libncurses5-dev libncursesw5-dev libsasl2-dev libssl-dev && \
-			./configure --prefix=/usr                           \
-					  --sysconfdir=/etc                         \
-					  --with-docdir=/usr/share/doc/mutt-1.9.5   \
-					  --with-ssl                                \
-					  --with-sasl                               \
-					  --with-tokyo-cabinet                      \
-					  --enable-external-dotlock                 \
-					  --enable-pop                              \
-					  --enable-imap                             \
-					  --enable-smtp                             \
-					  --enable-hcache                           \
-					  --enable-sidebar                       && \
+			./configure --prefix=/usr                     \
+					--sysconfdir=/etc                         \
+					--with-docdir=/usr/share/doc/mutt-1.9.5   \
+					--with-ssl                                \
+					--with-sasl                               \
+					--with-tokyo-cabinet                      \
+					--enable-external-dotlock                 \
+					--enable-pop                              \
+					--enable-imap                             \
+					--enable-smtp                             \
+					--enable-hcache                           \
+					--enable-sidebar                       && \
 			sudo make && \
 			sudo make install && \
 			cd /tmp && \
