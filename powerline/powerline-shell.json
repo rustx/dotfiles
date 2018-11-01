@@ -1,0 +1,25 @@
+{
+  "segments": [
+    "virtual_env",
+    "aws_profile",
+    "time",
+    "username",
+    "hostname",
+    "ssh",
+    "cwd",
+    "git",
+    "jobs",
+    "set_term_title",
+    "newline",
+    "root"
+  ],
+  "mode": "patched",
+  "cwd": {
+    "mode": "plain"
+  },
+  "theme": "~/.config/powerline-shell/theme.py",
+  "hostname": {
+    "colorize": false
+  }
+}
+

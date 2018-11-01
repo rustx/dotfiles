@@ -1,0 +1,7 @@
+image/*; feh %s
+application/pdf; xpdf %s
+text/html;                      links2 -g %s; nametemplate=%s.html
+text/html;                     links2 -g -dump %s; nametemplate=%s.html; copiousoutput
+text/*;  less
+
+

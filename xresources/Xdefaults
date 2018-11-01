@@ -1,0 +1,40 @@
+! Fonts and colors
+urxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+urxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+urxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+urxvt*geometry: 150x50
+
+! Fonts settings
+xft*dpi: 96
+xft*lcdfilter : lcddefault
+xft*hinting: true
+xft*autohint: true
+xft*antialias: true
+xft*hintstyle: hintslight
+xft*rgba: rgb
+
+! Terminal settings
+urxvt*termName: rxvt-unicode-256color
+urxvt*scrollBar: false
+urxvt*urgentOnBell: true
+urxvt*depth: 32
+
+! Terminal transparency
+urxvt*inheritPixmap: true
+urxvt*shading: 30
+
+urxvt*letterSpace: -1
+urxvt*pointerColor: color0
+urxvt*pointerColor2: color15
+
+! Urxvt libraries
+urxvt*perl-lib: /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,selection-to-clipboard
+
+! enabling clickable links
+urxvt*url-launcher: /usr/bin/xdg-open
+urxvt*matcher.button: 1
+
+#include ".xresources/theme"
+
+! vim: ft=xdefaults:fdm=marker:et:sw=2:

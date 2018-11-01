@@ -1,0 +1,40 @@
+! Teknicity color scheme
+! personal mix of colors
+
+urxvt*background:   #121212
+urxvt*foreground:   #a8a8a8
+urxvt*cursorColor:  #d1d1d1
+
+! Black
+urxvt*color0:       #101010
+urxvt*color8:       #808080
+
+! Red
+urxvt*color1:       #af5f5f
+urxvt*color9:       #d75f5f
+
+! Green
+urxvt*color2:       #87af5f
+urxvt*color10:      #5faf5f
+
+! Yellow
+urxvt*color3:       #d7af5f
+urxvt*color11:      #d7875f
+
+! Blue
+urxvt*color4:       #5f87af
+urxvt*color12:      #87afd7
+
+! Magenta
+urxvt*color5:       #875f87
+urxvt*color13:      #875faf
+
+! Cyan
+urxvt*color6:       #5f8787
+urxvt*color14:      #87afaf
+
+! White
+urxvt*color7:       #949494
+urxvt*color15:      #d1d1d1
+
+! vim: ft=xdefaults:fdm=marker:et:sw=3:

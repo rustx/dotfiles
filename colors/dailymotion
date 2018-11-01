@@ -1,0 +1,39 @@
+! Dailymotion color scheme
+
+urxvt*background:   #262626
+urxvt*foreground:   #c5c8c6
+urxvt*cursorColor:  #d1d1d1
+
+! Black
+urxvt*color0:       #282A2E
+urxvt*color8:       #373B41
+
+! Red
+urxvt*color1:       #A54242
+urxvt*color9:       #CC6666
+
+! Green
+urxvt*color2:       #8C9440
+urxvt*color10:      #B5BD68
+
+! Yellow
+urxvt*color3:       #DE935F
+urxvt*color11:      #F0C674
+
+! Blue
+urxvt*color4:       #5F819D
+urxvt*color12:      #81A2BE
+
+! Magenta
+urxvt*color5:       #85678F
+urxvt*color13:      #B294BB
+
+! Cyan
+urxvt*color6:       #5E8D87
+urxvt*color14:      #8ABEB7
+
+! White
+urxvt*color7:       #707880
+urxvt*color15:      #C5C8C6
+
+! vim: ft=xdefaults:fdm=marker:et:sw=3:
