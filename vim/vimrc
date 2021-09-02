@@ -39,8 +39,9 @@ Plugin 'lilydjwg/colorizer'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'w0rp/ale'
 Plugin 'blindFS/vim-taskwarrior'
+Plugin 'danishprakash/vim-docker'
 
-" Bundle 'valloric/youcompleteme'
+Bundle 'valloric/youcompleteme'
 " Plugin 'airblade/vim-gitgutter'
 " Plugin 'vim-syntastic/syntastic'
 " Plugin 'ramele/agrep'
@@ -100,6 +101,7 @@ set backup                                    " Enable creation of backup file.
 set backupdir=~/.vim/backups                  " Where backups will go.
 set directory=~/.vim/tmp                      " Where temporary files will go.
 set term=rxvt-unicode-256color
+set noeol
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
@@ -138,6 +140,9 @@ autocmd BufEnter * silent! lcd %:p:h
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" terminal size
+let g:termwinsize=10
+
 " javascript syntax
 " auto pairs
 let g:javascript_plugin_flow = 1
@@ -152,6 +157,7 @@ let g:go_version_warning = 0
 " async status
 let g:asyncrun_status = "idle"
 let g:asyncrun_last = 1
+let g:asyncrun_open = 8
 
 " powerline
 let g:airline_powerline_fonts = 1
@@ -196,6 +202,8 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = { 'cpp': ['clang', 'clangtidy'] }
+let g:ale_c_build_dir_names = ['build', 'release']
 
 " NerdTREE
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -214,12 +222,12 @@ let g:virtualenv_auto_activate=1
 autocmd FileType python nnoremap <LocalLeader>i :!isort %<CR><CR>
 
 " python format
-" autocmd FileType python map <C-Y> :call yapf#YAPF()<cr>
-" autocmd FileType python imap <C-Y> <c-o>:call yapf#YAPF()<cr>
+autocmd FileType python map <C-Y> :call yapf#YAPF()<cr>
+autocmd FileType python imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 
 augroup vimrc
 	autocmd QuickFixCmdPost * botright copen 16
-    " autocmd User AsyncRunStart call asyncrun#quickfix_toggle(16, 1)
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(16, 1)
 augroup END
 
 " use asyncrun for vim-fugitive
@@ -229,11 +237,11 @@ command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
 nnoremap <F2> :NERDTreeToggle<CR>
 
 " F3 to format files
-autocmd FileType go			map <buffer> <F3> :GoFmt<CR>
+autocmd FileType go		map <buffer> <F3> :GoFmt<CR>
 autocmd FileType python	map <buffer> <F3> :YAPF<CR>
 
 " F4 to call linters
-autocmd FileType go			map <buffer> <F4> :GoLint<CR>
+autocmd FileType go	    map <buffer> <F4> :GoLint<CR>
 autocmd FileType python	map <buffer> <F4> :call Flake8()<CR>
 
 " F5 to toggle build and run
@@ -250,6 +258,9 @@ nnoremap <F8> :TagbarToggle<CR>
 
 " F9 to toggle quickfix window
 nnoremap <F9> :call asyncrun#quickfix_toggle(16)<cr>
+
+" F10 to toggle terminal
+nnoremap <F10> :bo ter ++rows=15<cr>
 
 " Change window
 nnoremap <C-J> <C-W><C-J>
@@ -289,18 +300,18 @@ function! s:compile_and_run()
     if &filetype == 'c'
         exec "AsyncRun! gcc '%' -o '%<'; time './%<'"
     elseif &filetype == 'cpp'
-       exec "AsyncRun! g++ -std=c++11 '%' -o '%<'; time './%<'"
+        exec "AsyncRun! g++ -std=c++11 '%' -o '%<'; time './%<'"
     elseif &filetype == 'java'
-       exec "AsyncRun! javac '%'; time java '%<'"
+        exec "AsyncRun! javac '%'; time java '%<'"
     elseif &filetype == 'sh'
-       exec "AsyncRun! time bash '%'"
+        exec "AsyncRun! time bash '%'"
     elseif &filetype == 'python'
-       exec "AsyncRun! time python '%'"
+        exec "AsyncRun! time python '%'"
     elseif &filetype == 'Makefile'
-       exec "AsyncRun! time make -f '%'"
+        exec "AsyncRun! time make -f '%'"
 	elseif &filetype == 'Dockerfile'
-       exec "AsyncRun! time docker build -f '%'"
+        exec "AsyncRun! time docker build -f '%'"
 	elseif &filetype == 'go'
-       exec "AsyncRun! time go build '%:p:h'"
+        exec "AsyncRun! time go build ./... '%:p:h'"
 	endif
 endfunction

@@ -70,7 +70,7 @@
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-MusicDir = "~/Music"
+MusicDir = "/home/rustx/Music"
 
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
@@ -293,11 +293,11 @@ Theme = active_theme
 #             Fastdir4 = /mp3/etc
 #
 
-Fastdir1 = "~/Music/Sound Cloud"
-Fastdir2 = "~/Music/Electro"
-Fastdir3 = "~/Music/DanceHall"
-Fastdir4 = "~/Music/Rap"
-Fastdir5 = "~/Music/Reggae"
+Fastdir1 = "${MusicDir}/Sound Cloud"
+Fastdir2 = "${MusicDir}/Electro"
+Fastdir3 = "${MusicDir}/DanceHall"
+Fastdir4 = "${MusicDir}/Rap"
+Fastdir5 = "${MusicDir}/Reggae"
 
 #Fastdir2 =
 #Fastdir3 =

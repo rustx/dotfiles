@@ -1,8 +1,8 @@
 ! Fonts and colors
-urxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-urxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-urxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-urxvt*geometry: 150x50
+URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*geometry: 150x50
 
 ! Fonts settings
 xft*dpi: 96
@@ -14,27 +14,39 @@ xft*hintstyle: hintslight
 xft*rgba: rgb
 
 ! Terminal settings
-urxvt*termName: rxvt-unicode-256color
-urxvt*scrollBar: false
-urxvt*urgentOnBell: true
-urxvt*depth: 32
+URxvt*termName: rxvt-unicode-256color
+URxvt*scrollBar: false
+URxvt*urgentOnBell: true
+URxvt*depth: 32
 
 ! Terminal transparency
-urxvt*inheritPixmap: true
-urxvt*shading: 30
+URxvt*inheritPixmap: false
+URxvt*transparency: true
+URxvt*shading: 30
 
-urxvt*letterSpace: -1
-urxvt*pointerColor: color0
-urxvt*pointerColor2: color15
+! urxvt*letterSpace: -1
+URxvt*pointerColor: #101010
+URxvt*pointerColor2: #d1d1d1
 
 ! Urxvt libraries
 urxvt*perl-lib: /usr/lib/urxvt/perl/
-urxvt*perl-ext-common: default,matcher,selection-to-clipboard
+urxvt*perl-ext-common: default,matcher,selection-to-clipboard,font-size
 
 ! enabling clickable links
-urxvt*url-launcher: /usr/bin/xdg-open
-urxvt*matcher.button: 1
+URxvt*url-launcher: /usr/bin/xdg-open
+URxvt*matcher.button: 1
+
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+
+! Disable printing the terminal contents when pressing PrintScreen.
+urxvt.print-pipe: "cat > /dev/null"
 
 #include ".xresources/theme"
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=2:
+

@@ -13,8 +13,8 @@ class Color(DefaultColor):
     HOME_BG = 31  # blueish
     HOME_FG = 15  # white
     PATH_BG = 238
-    PATH_FG = 150
-    CWD_FG = 150
+    PATH_FG = 30
+    CWD_FG = 184
     SEPARATOR_FG = 251
 
     READONLY_BG = 209
@@ -58,5 +58,5 @@ class Color(DefaultColor):
     AWS_PROFILE_FG = 0
     AWS_PROFILE_BG = 7
 
-    TIME_FG = 236
-    TIME_BG = 150
+    TIME_FG = 233
+    TIME_BG = 179
