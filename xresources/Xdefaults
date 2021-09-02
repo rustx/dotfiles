@@ -1,7 +1,7 @@
 ! Fonts and colors
-URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=11:antialias=true:hinting=true
+URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=11:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=11:antialias=true:hinting=true
 URxvt*geometry: 150x50
 
 ! Fonts settings
@@ -22,7 +22,7 @@ URxvt*depth: 32
 ! Terminal transparency
 URxvt*inheritPixmap: false
 URxvt*transparency: true
-URxvt*shading: 30
+URxvt*shading: 40
 
 ! urxvt*letterSpace: -1
 URxvt*pointerColor: #101010
