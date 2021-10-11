@@ -17,7 +17,7 @@ all: xresources
 .PHONY: xresources
 xresources:
 	@echo "$(blue)Xresources $(reset)"
-	@echo "$(blue) Checking Xdefaults directories$(reset)"
+	@echo "$(blue) Checking .Xresources directories$(reset)"
 	@if ! ((  test -d ~/.xresources )); then \
 		mkdir -p ~/.xresources && \
 		read -p '  --> What theme would you like to link ($(shell ls ../colors |grep -Ev "palette|dircolors")) ? : ' theme ;\
@@ -31,18 +31,18 @@ xresources:
 		echo "$(green)  --> Theme $$theme linked successfully$(reset)"; \
 	fi;
 	@echo "$(blue) Checking xresources configuration file$(reset)"
-	@if ! (( test -f ~/.Xdefaults )); then \
+	@if ! (( test -f ~/.Xresources )); then \
 		echo "$(green)  --> No old xresources configuration file, all clean$(reset)" &&\
 		echo "$(orange)  --> Linking new xresources configuration file$(reset)" &&\
-		ln -s $(PWD)/Xdefaults ~/.Xdefaults && \
-		xrdb -merge ~/.Xdefaults; \
+		ln -s $(PWD)/Xresources ~/.Xresources && \
+		xrdb -merge ~/.Xresources; \
 	else \
-		echo "$(green)  --> Moving old configuration file to ~/.Xdefaults.$(NOW)$(reset)" &&\
-		cp ~/.Xdefaults ~/.Xdefaults.$(NOW) && \
-		rm ~/.Xdefaults && \
+		echo "$(green)  --> Moving old configuration file to ~/.Xresources.$(NOW)$(reset)" &&\
+		cp ~/.Xresources ~/.Xresources.$(NOW) && \
+		rm ~/.Xresources && \
 		echo "$(orange)  --> Linking new xresources configuration file$(reset)" &&\
-		ln -s $(PWD)/Xdefaults ~/.Xdefaults && \
-		xrdb -merge ~/.Xdefaults; \
+		ln -s $(PWD).Xresources ~/.Xresources && \
+		xrdb -merge ~/.Xresources; \
 	fi;
 	@echo "$(blue)--> Done !$(reset)\n"
 
