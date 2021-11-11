@@ -1,40 +1,40 @@
 ! Dracula color scheme
 ! adapted from https://github.com/dracula
 
-urxvt*foreground:   #d1d1d1
-urxvt*background:   #221e2d
-urxvt*cursorColor:  #d1d1d1
+*.foreground:   #d1d1d1
+*.background:   #221e2d
+*.cursorColor:  #d1d1d1
 
 ! Black
-urxvt*color0:       #272822
-urxvt*color8:       #75715e
+*.color0:       #272822
+*.color8:       #75715e
 
 ! Red
-urxvt*color1:       #f92672
-urxvt*color9:       #f92672
+*.color1:       #f92672
+*.color9:       #f92672
 
 ! Green
-urxvt*color2:       #a6e22e
-urxvt*color10:      #a6e22e
+*.color2:       #a6e22e
+*.color10:      #a6e22e
 
 ! Yellow
-urxvt*color3:       #f4bf75
-urxvt*color11:      #f4bf75
+*.color3:       #f4bf75
+*.color11:      #f4bf75
 
 ! Blue
-urxvt*color4:       #66d9ef
-urxvt*color12:      #66d9ef
+*.color4:       #66d9ef
+*.color12:      #66d9ef
 
 ! Magenta
-urxvt*color5:       #ae81ff
-urxvt*color13:      #ae81ff
+*.color5:       #ae81ff
+*.color13:      #ae81ff
 
 ! Cyan
-urxvt*color6:       #a1efe4
-urxvt*color14:      #a1efe4
+*.color6:       #a1efe4
+*.color14:      #a1efe4
 
 ! White
-urxvt*color7:       #f8f8f2
-urxvt*color15:      #f9f8f5
+*.color7:       #f8f8f2
+*.color15:      #f9f8f5
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=2:

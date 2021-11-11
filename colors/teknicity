@@ -1,39 +1,39 @@
 ! Teknicity color scheme
 ! personal mix of colors
 
-URxvt*background:   [80]#121212
-URxvt*foreground:   #a8a8a8
-URxvt*cursorColor:  #d1d1d1
+*.background:   [80]#121212
+*.foreground:   #a8a8a8
+*.cursorColor:  #d1d1d1
 
 ! Black
-URxvt*color0:       #101010
-URxvt*color8:       #808080
+*.color0:       #101010
+*.color8:       #808080
 
 ! Red
-URxvt*color1:       #af5f5f
-URxvt*color9:       #d75f5f
+*.color1:       #af5f5f
+*.color9:       #d75f5f
 
 ! Green
-URxvt*color2:       #87af5f
-URxvt*color10:      #5faf5f
+*.color2:       #87af5f
+*.color10:      #5faf5f
 
 ! Yellow
-URxvt*color3:       #d7af5f
-URxvt*color11:      #d7875f
+*.color3:       #d7af5f
+*.color11:      #d7875f
 
 ! Blue
-URxvt*color4:       #5f87af
-URxvt*color12:      #87afd7
+*.color4:       #5f87af
+*.color12:      #87afd7
 
 ! Magenta
-URxvt*color5:       #875f87
-URxvt*color13:      #875faf
+*.color5:       #875f87
+*.color13:      #875faf
 
 ! Cyan
-URxvt*color6:       #5f8787
-URxvt*color14:      #87afaf
+*.color6:       #5f8787
+*.color14:      #87afaf
 
 ! White
-URxvt*color7:       #949494
-URxvt*color15:      #d1d1d1
+*.color7:       #949494
+*.color15:      #d1d1d1
 

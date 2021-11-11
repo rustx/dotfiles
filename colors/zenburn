@@ -1,40 +1,40 @@
 ! Zenburn color-scheme
 ! adapted from https://gist.github.com/cqpx/1436584
 
-urxvt*background:   #1f1f1f
-urxvt*foreground:   #dcdccc
-urxvt*cursorColor:  #d1d1d1
+*.background:   #1f1f1f
+*.foreground:   #dcdccc
+*.cursorColor:  #d1d1d1
 
 ! Black
-urxvt*color0:       #1f1f1f
-urxvt*color8:       #709080
+*.color0:       #1f1f1f
+*.color8:       #709080
 
 ! Red
-urxvt*color1:       #705050
-urxvt*color9:       #dca3a3
+*.color1:       #705050
+*.color9:       #dca3a3
 
 ! Green
-urxvt*color2:       #60b48a
-urxvt*color10:      #c3bf9f
+*.color2:       #60b48a
+*.color10:      #c3bf9f
 
 ! Yellow
-urxvt*color3:       #dfaf8f
-urxvt*color11:      #f0dfaf
+*.color3:       #dfaf8f
+*.color11:      #f0dfaf
 
 ! Blue
-urxvt*color4:       #506070
-urxvt*color12:      #94bff3
+*.color4:       #506070
+*.color12:      #94bff3
 
 ! Magenta
-urxvt*color5:       #dc8cc3
-urxvt*color13:      #ec93d3
+*.color5:       #dc8cc3
+*.color13:      #ec93d3
 
 ! Cyan
-urxvt*color6:       #8cd0d3
-urxvt*color14:      #93e0e3
+*.color6:       #8cd0d3
+*.color14:      #93e0e3
 
 ! White
-urxvt*color7:       #dcdccc
-urxvt*color15:      #ffffff
+*.color7:       #dcdccc
+*.color15:      #ffffff
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=2:

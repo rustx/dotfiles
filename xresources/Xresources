@@ -3,6 +3,7 @@ URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=tr
 URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
 URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
 URxvt*geometry: 150x50
+URxvt*iconFile: /usr/share/icons/Vimix/scalable/apps/terminal.svg
 
 ! Fonts settings
 xft*dpi: 96

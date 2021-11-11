@@ -44,10 +44,10 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'w0rp/ale'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'danishprakash/vim-docker'
+Plugin 'vim-syntastic/syntastic'
 
 Bundle 'valloric/youcompleteme'
 " Plugin 'airblade/vim-gitgutter'
-" Plugin 'vim-syntastic/syntastic'
 " Plugin 'ramele/agrep'
 " Plugin 'maralla/completor.vim'
 " Plugin 'nikvdp/ejs-syntax'
@@ -219,7 +219,7 @@ let g:task_info_vsplit = 0
 
 " python
 let python_highlight_all=1
-let g:virtualenv_directory = '~/.virtualenvs'
+let g:virtualenv_directory = '~/.local/share/virtualenvs'
 let g:virtualenv_auto_activate=1
 
 " python sort imports
