@@ -46,6 +46,7 @@ Plugin 'blindFS/vim-taskwarrior'
 Plugin 'danishprakash/vim-docker'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'towolf/vim-helm'
 Plugin 'NLKNguyen/papercolor-theme'
 
 Bundle 'valloric/youcompleteme'
@@ -55,7 +56,7 @@ Bundle 'valloric/youcompleteme'
 " Plugin 'nikvdp/ejs-syntax'
 " Plugin 'tomtom/tcomment_vim'
 " Plugin 'mxw/vim-jsx'
-" Plugin 'shougo/vimshell.vim'
+" Plugin 'shougo/vimshell.vim'-
 " Plugin 'shougo/vimproc.vim'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'chriskempson/base16-vim'
@@ -123,6 +124,9 @@ endif
 
 highlight BadWhitespace ctermbg=red guibg=red
 
+" remove all trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
+
 " for html/rb files, 2 spaces
 autocmd Filetype html set tw=120 ts=2 sw=2 expandtab
 autocmd Filetype ruby set tw=120 ts=2 sw=2 expandtab
@@ -172,7 +176,7 @@ let g:asyncrun_open = 8
 let g:airline_powerline_fonts = 1
 
 " airline
-let g:airline_theme='bubblegum'
+let g:airline_theme='papercolor'
 let g:airline_detect_modified=1
 let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
