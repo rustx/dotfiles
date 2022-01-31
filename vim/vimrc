@@ -124,9 +124,10 @@ highlight BadWhitespace ctermbg=red guibg=red
 " remove all trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-" for html/rb files, 2 spaces
+" for html/rb/lua files, 2 spaces
 autocmd Filetype html set tw=120 ts=2 sw=2 expandtab
 autocmd Filetype ruby set tw=120 ts=2 sw=2 expandtab
+autocmd Filetype lua set tw=120 ts=2 sw=2 expandtab
 
 " for js/coffee/jade/python/go files, 4 spaces
 autocmd Filetype javascript set tw=120 ts=4 sw=4 sts=0 expandtab
@@ -214,7 +215,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = { 'cpp': ['clang', 'clangtidy'] }
+" let g:ale_linters = { 'cpp': ['clang', 'clangtidy'] }
 let g:ale_c_build_dir_names = ['build', 'release']
 
 " NerdTREE
@@ -285,6 +286,12 @@ nnoremap <C-B>n :bn<CR>
 nnoremap <C-B>p :bp<CR>
 nnoremap <C-B>d :bd<CR>
 nnoremap <C-B>c :bp\|bd #<CR>
+
+" Change tabs
+nnoremap <C-T>n :tabnext<CR>
+nnoremap <C-T>p :tabprevious<CR>
+nnoremap <C-B>d :tabclose<CR>
+nnoremap <C-B>c :tabprevious\|tabclose #<CR>
 
 " Use space to fold and unfold code
 nnoremap <space> za
