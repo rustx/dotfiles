@@ -71,8 +71,6 @@ Bundle 'valloric/youcompleteme'
 
 call vundle#end()   " required for vundle to work
 
-colorscheme PaperColor
-
 language en_US.UTF-8
 syntax enable
 filetype plugin indent on
@@ -108,7 +106,6 @@ set backup                                    " Enable creation of backup file.
 set backupdir=~/.vim/backups                  " Where backups will go.
 set directory=~/.vim/tmp                      " Where temporary files will go.
 set term=rxvt-unicode-256color
-set noeol
 
 if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
@@ -152,6 +149,8 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Papercolor colorscheme setup
 let g:PaperColor_Theme_Options = {'theme':{'default.dark':{'transparent_background': 1}}}
+
+colorscheme PaperColor
 
 " terminal size
 let g:termwinsize=10
