@@ -48,6 +48,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'towolf/vim-helm'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'dylanaraps/wal.vim'
 
 Bundle 'valloric/youcompleteme'
 " Plugin 'airblade/vim-gitgutter'
