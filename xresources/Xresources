@@ -1,18 +1,22 @@
 ! Fonts and colors
-URxvt*font: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
-URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:pixelsize=13:antialias=true:hinting=true
+URxvt*font: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
+URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
+URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
 URxvt*geometry: 150x50
 URxvt*iconFile: /usr/share/icons/Vimix/scalable/apps/terminal.svg
 
 ! Fonts settings
-xft*dpi: 96
-xft*lcdfilter : lcddefault
-xft*hinting: true
-xft*autohint: true
-xft*antialias: true
-xft*hintstyle: hintslight
-xft*rgba: rgb
+Xft.dpi: 160
+Xft.lcdfilter : lcddefault
+Xft.hinting: true
+Xft.autohint: true
+Xft.antialias: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+
+! cursor settings
+Xcursor.size: 16
+Xcursor.theme: Vimix
 
 ! Terminal settings
 URxvt*termName: rxvt-unicode-256color
@@ -23,9 +27,9 @@ URxvt*depth: 32
 ! Terminal transparency
 URxvt*inheritPixmap: false
 URxvt*transparency: true
-URxvt*shading: 40
+URxvt*shading: 30
 
-! urxvt*letterSpace: -1
+! URxvt*letterSpace: -1
 URxvt*pointerColor: #101010
 URxvt*pointerColor2: #d1d1d1
 
