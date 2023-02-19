@@ -25,6 +25,7 @@ help:
 	@echo "\t\t$(orange)weechat$(reset)\t\t\t- Link weechat config files"
 	@echo "\t\t$(orange)mutt$(reset)\t\t\t- Build mutt and link config files"
 	@echo "\t\t$(orange)mocp$(reset)\t\t\t- Link mocp config files"
+	@echo "\t\t$(orange)alacritty$(reset)\t\t  Link alacritty onfig files"
 	@echo "\t\t$(orange)xresources$(reset)\t\t- Link xresources config files\n"
 	@echo "\t\t$(orange)clean$(reset)\t\t\t- Clean backup files"
 	@echo "\t\t$(orange)help$(reset)\t\t\t- Shows this help"
@@ -45,6 +46,7 @@ clean:
 		~/.muttrc.* \
 		~/.mutt/accounts/*/settings \
 		~/.moc/config.* \
+		~/.config/alacritty/alacritty.yml.* \
 		~/.moc/themes/active_theme.* \
 		~/.Xdefaults.* \
 		~/.xresources/theme.*; do \
