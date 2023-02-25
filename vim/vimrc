@@ -1,4 +1,4 @@
-" Default settings
+" default settings
 set nocompatible  " be iMproved, required
 filetype off      " required
 
@@ -43,7 +43,6 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'w0rp/ale'
-Plugin 'blindFS/vim-taskwarrior'
 Plugin 'danishprakash/vim-docker'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'arcticicestudio/nord-vim'
@@ -52,6 +51,11 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'frenzyexists/aquarium-vim', { 'branch': 'develop' }
 Plugin 'andrewstuart/vim-kubernetes'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'honza/vim-snippets'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'vim-scripts/grep.vim'
 
 Bundle 'valloric/youcompleteme'
 " Plugin 'airblade/vim-gitgutter'
@@ -71,7 +75,7 @@ Bundle 'valloric/youcompleteme'
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'godlygeek/tabular'
 " Plugin 'plasticboy/vim-markdown'
-" All of your Plugins must be added before the following line
+" All of your Plugins must be added before the followin line
 
 call vundle#end()   " required for vundle to work
 
@@ -80,6 +84,7 @@ syntax enable
 filetype plugin indent on
 
 set title                                     " Window title
+set titlestring=%F                            " Title string
 set cf                                        " Enable error files & error jumping
 set t_Co=256                                  " Terminal colors
 set encoding=utf-8                            " File encoding
@@ -92,6 +97,7 @@ set ttymouse=urxvt                            " Tty mouse
 set nowrap                                    " Line wrapping off
 set mouse=a                                   " Mouse in all modes
 set number                                    " Print lines number
+set relativenumber                            " Print lines number
 set autochdir                                 " Change vim directory when opening files
 set backspace=indent,eol,start                " Indentation on new line
 set cindent                                   " Indentation setup
@@ -109,18 +115,20 @@ set laststatus=2                              " Always show status line.
 set backup                                    " Enable creation of backup file.
 set backupdir=~/.vim/backups                  " Where backups will go.
 set directory=~/.vim/tmp                      " Where temporary files will go.
-set term=rxvt-unicode-256color
+set term=rxvt-unicode-256color                " Terminal setting
+set hlsearch                                  " Highlight search
+" set wildmenu                                  " Better command line completion
 
 if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-    set t_ut=
+	" disable Background Color Erase (BCE) so that color schemes
+	" render properly when inside 256-color tmux and GNU screen.
+	" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+	set t_ut=
 endif
 
 set guifont=Source\ Code\ Pro\ Medium:h13
 if has('gui_running')
-    set guifont=Source\ Code\ Pro\ Medium:h14
+	set guifont=Source\ Code\ Pro\ Medium:h14
 endif
 
 highlight BadWhitespace ctermbg=red guibg=red
@@ -154,8 +162,18 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Papercolor colorscheme setup
 let g:PaperColor_Theme_Options = {'theme':{'default.dark':{'transparent_background': 1}}}
-
+" let g:gruvbox_transparent_bg = '1'
 colorscheme PaperColor
+"colorscheme gruvbox
+
+"" Map leader to ,
+let mapleader=','
+
+" session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
 
 " terminal size
 let g:termwinsize=10
@@ -186,16 +204,56 @@ let g:airline#extensions#fugitiveline#enabled = 1
 let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#vcs_priority = ["git", "mercurial"]
-
+let g:airline_skip_empty_sections = 1
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 
+" vim-airline
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_left_sep          = '▶'
+let g:airline_left_alt_sep      = '»'
+let g:airline_right_sep         = '◀'
+let g:airline_right_alt_sep     = '«'
+let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+let g:airline#extensions#readonly#symbol   = '⊘'
+let g:airline#extensions#linecolumn#prefix = '¶'
+let g:airline#extensions#paste#symbol      = 'ρ'
+let g:airline_symbols.linenr    = '␊'
+let g:airline_symbols.branch    = '⎇'
+let g:airline_symbols.paste     = 'ρ'
+let g:airline_symbols.paste     = 'Þ'
+let g:airline_symbols.paste     = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+else
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+endif
+
 " try change whitespace
-let g:airline_symbols.linenr = 'Ξ'
-let g:airline_symbols.whitespace = '⣿'
-let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.linenr = 'Ξ'
+" let g:airline_symbols.whitespace = '⣿'
+" let g:airline_symbols.maxlinenr = ''
+
+" activate python virtualenv
+let g:airline#extensions#virtualenv#enabled = 1
 
 " simply fold
 let g:SimpylFold_docstring_preview=1
@@ -219,16 +277,23 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" let g:ale_linters = { 'cpp': ['clang', 'clangtidy'] }
 let g:ale_c_build_dir_names = ['build', 'release']
 
 " NerdTREE
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+let g:NERDTreeIgnore=['node_modules','\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+"let g:NERDTreeWinSize = 50
 
-" taskwarrior settings
-let g:task_info_size = 20
-let g:task_info_vsplit = 0
-" let g:task_info_position='bottom'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite,*node_modules/
+
+" grep.vim
+nnoremap <silent> <leader>f :Rgrep<CR>
+let Grep_Default_Options = '-IR'
+let Grep_Skip_Files = '*.log *.db'
+let Grep_Skip_Dirs = '.git node_modules'
 
 " python
 let python_highlight_all=1
@@ -243,12 +308,56 @@ autocmd FileType python map <C-Y> :call yapf#YAPF()<cr>
 autocmd FileType python imap <C-Y> <c-o>:call yapf#YAPF()<cr>
 
 augroup vimrc
-	autocmd QuickFixCmdPost * botright copen 16
-    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(16, 1)
+autocmd QuickFixCmdPost * botright copen 16
+autocmd User AsyncRunStart call asyncrun#quickfix_toggle(16, 1)
 augroup END
+
+
+" Goland configuration
+augroup go
+
+au!
+au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+au Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
+au FileType go nmap <Leader>dd <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>db <Plug>(go-doc-browser)
+
+au FileType go nmap <leader>r  <Plug>(go-run)
+au FileType go nmap <leader>t  <Plug>(go-test)
+au FileType go nmap <Leader>gt <Plug>(go-coverage-toggle)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <silent> <Leader>l <Plug>(go-metalinter)
+au FileType go nmap <C-g> :GoDecls<cr>
+au FileType go nmap <leader>dr :GoDeclsDir<cr>
+au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
+au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
+au FileType go nmap <leader>rb :<C-u>call <SID>build_go_files()<CR>
+
+augroup END
+
+" jedi-vim
+let g:jedi#popup_on_dot = 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#show_call_signatures = "0"
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#smart_auto_mappings = 0
 
 " use asyncrun for vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+
+" Fix whitespaces
+command! FixWhitespace :%s/\s\+$//e
+
+" remove highlighted search with esc
+" nnoremap <esc> :noh<return><esc>
 
 " F2 to toggle nerdtree
 nnoremap <F2> :NERDTreeToggle<CR>
@@ -266,9 +375,6 @@ nnoremap <F5> :call <SID>compile_and_run()<CR>
 
 " F6 to navigate buffers
 nnoremap <F6> :buffers<CR>:buffer<Space>
-
-" F7 to get taskwarrior tasks
-nnoremap <F7> :TW list<CR>
 
 " F8 to toggle tagbar
 nnoremap <F8> :TagbarToggle<CR>
@@ -296,6 +402,19 @@ nnoremap <C-T>n :tabnext<CR>
 nnoremap <C-T>p :tabprevious<CR>
 nnoremap <C-B>d :tabclose<CR>
 nnoremap <C-B>c :tabprevious\|tabclose #<CR>
+
+" Git
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Git commit --verbose<CR>
+noremap <Leader>gsh :Git push<CR>
+noremap <Leader>gll :Git pull<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gd :Gvdiffsplit<CR>
+noremap <Leader>gr :GRemove<CR>
+
+"" Open current line on GitHub
+nnoremap <Leader>o :.GBrowse<CR>
 
 " Use space to fold and unfold code
 nnoremap <space> za
@@ -338,3 +457,4 @@ function! s:compile_and_run()
       exec "AsyncRun! time go build ./... '%:p:h'"
 	endif
 endfunction
+
