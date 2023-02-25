@@ -1,12 +1,26 @@
-! Fonts and colors
-URxvt*font: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
-URxvt*boldFont: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
-URxvt*boldItalicFont: xft:Source\ Code\ Pro\ Medium:size=8.5:antialias=true:hinting=true
+! HiDPI settings
+#ifdef HIDPI
+# if HIDPI == 0
+  Xft.dpi: 96
+  Xcursor.size: 16
+# elif HIDPI == 1
+  Xcursor.size: 32
+  Xft.dpi: 144
+# endif
+#else
+  Xft.dpi: 96
+  Xcursor.size: 16
+#endif
+
+! Fonts
+URxvt*font: xft:Hack Nerd Font Mono:size=10:antialias=true:hinting=true:style=Regular
+URxvt*boldFont: xft:Hack Nerd Font Mono:size=10:antialias=true:hinting=true:style=Bold
+URxvt*boldItalicFont: xft:Hack Nerd Font Mono:size=10:antialias=true:hinting=true:style=Italic
+
 URxvt*geometry: 150x50
 URxvt*iconFile: /usr/share/icons/Vimix/scalable/apps/terminal.svg
 
-! Fonts settings
-Xft.dpi: 160
+! Screen settings
 Xft.lcdfilter : lcddefault
 Xft.hinting: true
 Xft.autohint: true
@@ -14,8 +28,8 @@ Xft.antialias: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 
-! cursor settings
-Xcursor.size: 16
+! Cursor settings
+! Xcursor.size: 16
 Xcursor.theme: Vimix
 
 ! Terminal settings
