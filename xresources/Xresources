@@ -65,6 +65,10 @@ URxvt.keysym.C-slash:  font-size:show
 ! Disable printing the terminal contents when pressing PrintScreen.
 urxvt.print-pipe: "cat > /dev/null"
 
+! Disable iso14755
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+
 #include ".xresources/theme"
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=2:
