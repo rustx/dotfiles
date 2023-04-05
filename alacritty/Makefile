@@ -16,25 +16,25 @@ all: alacritty
 
 .PHONY: alacritty
 alacritty:
-	@echo "$(blue)Mocp $(reset)"
+	@echo "$(blue)Alacritty $(reset)"
 	@echo "$(blue) Checking alacritty directories$(reset)"
 	@if ! (( test -d ~/.config/alacritty)); then \
 		mkdir -p ~/.config/alacritty && \
-		echo "$(green)   --> Directory ~/.config/alacritty/g created successfully$(reset)"; \
+		echo "$(green)   --> Directory ~/.config/alacritty created successfully$(reset)"; \
 	else \
 		echo "$(green)   --> Directory ~/.config/alacritty already exists$(reset)"; \
 	fi;
 	@echo "$(blue) Checking alacritty configuration file"
-	@if ! (( test  -f ~/.config/alacritty/alacritty.yml/g )); then \
+	@if ! (( test  -f ~/.config/alacritty/alacritty.yml )); then \
 		echo "$(green)  --> No old alacritty configuration file, all clean$(reset)" &&\
 		echo "$(orange)  --> Linking new alacritty configuration file$(reset)" &&\
-		ln -s $(PWD)/config ~/.config/alacritty/alacritty.yml/g; \
+		ln -s $(PWD)/alacritty.yml ~/.config/alacritty/alacritty.yml; \
 	else \
-		echo "$(green)  --> Moving old configuration file to ~/.config/alacritty/alacritty.yml/g.$(NOW)$(reset)" &&\
-		cp ~/.config/alacritty/alacritty.yml/g ~/.config/alaritty/alacritty.yml.$(NOW) && \
-		rm ~/.config/alacritty/alacritty.yml/g && \
+		echo "$(green)  --> Moving old configuration file to ~/.config/alacritty/alacritty.yml.$(NOW)$(reset)" &&\
+		cp ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.$(NOW) && \
+		rm ~/.config/alacritty/alacritty.yml && \
 		echo "$(orange)  --> Linking new alacritty configuration file$(reset)" &&\
-		ln -s $(PWD)/config ~/.config/alacritty/alacritty.yml/g; \
+		ln -s $(PWD)/alacritty.yml ~/.config/alacritty/alacritty.yml; \
 	fi;
 	@echo "$(blue)--> Done !$(reset)\n"
 
