@@ -1,13 +1,13 @@
 ! Rose pine theme
 ! Palette based on https://rosepinetheme.com/palette/ingredients/
 
-*.background:   #393552
+*.background:   [80]#232136
 *.foreground:   #e0def4
 *.cursorColor:  #e0def4
 
 ! Black
-*.color0:       #393552
-*.color8:       #6e6a86
+*.color0:       #2a273f
+*.color8:       #393552
 
 ! Red
 *.color1:       #eb6f92
@@ -15,15 +15,15 @@
 
 ! Green
 *.color2:       #3e8fb0
-*.color10:      #3e8fb0
+*.color10:      #f6c177
 
 ! Yellow
 *.color3:       #f6c177
-*.color11:      #f6c177
+*.color11:      #ea9a97
 
 ! Blue
 *.color4:       #9ccfd8
-*.color12:      #9ccfd8
+*.color12:      #3e8fb0
 
 ! Magenta
 *.color5:       #c4a7e7
@@ -31,10 +31,10 @@
 
 ! Cyan
 *.color6:       #ea9a97
-*.color14:      #ea9a97
+*.color14:      #9ccfd8
 
 ! White
-*.color7:       #e0def4
-*.color15:      #e0def4
+*.color7:       #6e6a86
+*.color15:      #908caa
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=3:
