@@ -37,3 +37,4 @@
 *.color7:       #949494
 *.color15:      #d1d1d1
 
+! vim: ft=xdefaults:fdm=marker:et:sw=3:

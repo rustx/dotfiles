@@ -8,7 +8,7 @@
   Xft.dpi: 144
 # endif
 #else
-  Xft.dpi: 96
+  Xft.dpi: 144
   Xcursor.size: 16
 #endif
 
@@ -72,4 +72,3 @@ URxvt.iso14755_52: false
 #include ".xresources/theme"
 
 ! vim: ft=xdefaults:fdm=marker:et:sw=2:
-

@@ -41,7 +41,7 @@ xresources:
 		cp ~/.Xresources ~/.Xresources.$(NOW) && \
 		rm ~/.Xresources && \
 		echo "$(orange)  --> Linking new xresources configuration file$(reset)" &&\
-		ln -s $(PWD).Xresources ~/.Xresources && \
+		ln -s $(PWD)/Xresources ~/.Xresources && \
 		xrdb -merge ~/.Xresources; \
 	fi;
 	@echo "$(blue)--> Done !$(reset)\n"
